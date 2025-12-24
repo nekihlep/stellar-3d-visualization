@@ -37,14 +37,16 @@ A web application for interactive 3D exploration of the night sky. Designed for 
 - pip package manager
 
 **One-Command Setup**
-
-Clone the repository
-
+```bash
+# Clone the repository
 git clone https://github.com/yourusername/stellar-3d.git
-
 cd stellar-3d
 
-Install dependencies
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the application
+streamlit run app.py
 
 pip install -r requirements.txt
 
