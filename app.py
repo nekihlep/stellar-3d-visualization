@@ -240,6 +240,7 @@ with col3:
         data=file_content,
         file_name="constellations.txt"
     )
+
 st.markdown(f"<h1 style='text-align: center;'>{lang['title']}</h1>", unsafe_allow_html=True)
 st.markdown(f"<p style='text-align: center;'>{lang['subtitle']}</p>", unsafe_allow_html=True)
 st.markdown("---")
@@ -386,28 +387,27 @@ fig.update_layout(
     ),
 
     paper_bgcolor='black',
-    margin=dict(l=20, r=200,t=80,b=20),
     showlegend=False,
     height=700
 )
-# Легенда спектральных классов
-fig.add_annotation(
-    x=1.2,
-    y=0.5,
-    xref="paper",
-    yref="paper",
-    text=lang['legend'],
-    showarrow=False,
-    align="left",
-    bordercolor="black",
-    borderwidth=1,
-    borderpad=8,
-    bgcolor="rgba(255, 255, 255, 0.9)",
-    font=dict(size=16, color='black'),
-    width=230
-)
+
 st.plotly_chart(fig, use_container_width=True)
 
+
+st.markdown("""
+<div style='background-color: rgba(0, 0, 20, 0.9); padding: 10px; border-radius: 5px; border: 1px solid #4A90E2;'>
+    <span style='color: white; font-size: 12px;'>
+    <b>Спектральные классы:</b><br>
+    <span style='color:#9bb0ff'>O</span> - самые горячие (>30,000K) |
+    <span style='color:#aabfff'>B</span> - горячие |
+    <span style='color:#cad7ff'>A</span> - белые |
+    <span style='color:#FFFACD'>F</span> - желтовато-белые |
+    <span style='color:yellow'>G</span> - жёлтые (Солнце) |
+    <span style='color:#FFA500'>K</span> - оранжевые |
+    <span style='color:red'>M</span> - красные (<3,700K)
+    </span>
+</div>
+""", unsafe_allow_html=True)
 st.markdown(f"### {lang['table_title']}")
 
 table_data_option = st.selectbox(
